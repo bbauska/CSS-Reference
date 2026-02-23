@@ -1,20 +1,18 @@
-/* js/scripts.js of CSS-Reference helping make CSS3-Reference.bauska.org */
+/* js/scripts.js of CSS-Reference helping make CSS-Reference.bauska.org */
 window.addEventListener('DOMContentLoaded', () => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const id = entry.target.getAttribute('id');
+      if (entry.intersectionRatio > 0) {
+        document.querySelector(`nav li a[href="#${id}"]`).parentElement.classList.add('active');
+      } else {
+        document.querySelector(`nav li a[href="#${id}"]`).parentElement.classList.remove('active');
+      }
+    });
+  });
 
-	const observer = new IntersectionObserver(entries => {
-		entries.forEach(entry => {
-			const id = entry.target.getAttribute('id');
-			if (entry.intersectionRatio > 0) {
-				document.querySelector(`nav li a[href="#${id}"]`).parentElement.classList.add('active');
-			} else {
-				document.querySelector(`nav li a[href="#${id}"]`).parentElement.classList.remove('active');
-			}
-		});
-	});
-
-	// Track all sections that have an `id` applied
-	document.querySelectorAll('section[id]').forEach((section) => {
-		observer.observe(section);
-	});
-	
+  // Track all sections that have an `id` applied
+  document.querySelectorAll('section[id]').forEach((section) => {
+    observer.observe(section);
+  });
 });
