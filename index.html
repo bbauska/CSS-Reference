@@ -262,28 +262,28 @@ Multiple link elements are permitted. The media attribute can be used to restric
 to one or more media environments:</p>
 <pre>
 <b>&lt;head&gt;</b>
-<b>&lt;title&gt;</b>A Document<b>&lt;/title&gt;</b>
-<b>&lt;link</b> rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;basic.css&quot;
-  media=&quot;all&quot;<b>&gt;</b>
-<b>&lt;link</b> rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;web.css&quot;
-  media=&quot;screen and (max-width: 960px)&quot;<b>&gt;</b>
-<b>&lt;link</b> rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;paper.css&quot;
-  media=&quot;print and (color-depth: 2)&quot;<b>&gt; &lt;/head&gt;</b>
+  <b>&lt;title&gt;</b>A Document<b>&lt;/title&gt;</b>
+  <b>&lt;link</b> rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;basic.css&quot;
+    media=&quot;all&quot;<b>&gt;</b>
+  <b>&lt;link</b> rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;web.css&quot;
+    media=&quot;screen and (max-width: 960px)&quot;<b>&gt;</b>
+  <b>&lt;link</b> rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;paper.css&quot;
+    media=&quot;print and (color-depth: 2)&quot
+<b>&gt; &lt;/head&gt;</b>
 </pre>
-<p>It is also possible to link to alternate stylesheets, but few browsers
-provide a way for users to make use of them. As of this writing, most or
-all known user agents load all linked stylesheets, including the
-alternate stylesheets, regardless of whether the user ever needs them.</p>
+
+<p>It is also possible to link to alternate stylesheets, but few browsers provide a way for users to 
+make use of them. As of this writing, most or all known user agents load all linked stylesheets, 
+including the alternate stylesheets, regardless of whether the user ever needs them.</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <h5>xml-stylesheet processing instruction</h5>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<p>In XML documents (such as XHTML documents sent with a MIME type of
-text/xml, application/xml, or application/ xhtml+xml), an xml-stylesheet
-processing instruction can be used to associate a stylesheet with a
-document. Any xmlstylesheet processing instructions must be placed in
-the prolog of an XML document. Multiple xml-stylesheet processing
-instructions are permitted. The media pseudo-attribute can be used to
-restrict a stylesheet to one or more forms of media:</p>
+<p>In XML documents (such as XHTML documents sent with a MIME type of text/xml, application/xml, or 
+application/ xhtml+xml), an xml-stylesheet processing instruction can be used to associate a stylesheet 
+with a document. Any xmlstylesheet processing instructions must be placed in the prolog of an XML 
+document. Multiple xml-stylesheet processing instructions are permitted. The media pseudo-attribute 
+can be used to restrict a stylesheet to one or more forms of media:</p>
+
 <!-- page 4 -->
 <pre>
 &lt;?xml-stylesheet type=&quot;text/css&quot; href=&quot;basic.css&quot;
@@ -296,16 +296,15 @@ restrict a stylesheet to one or more forms of media:</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <h5>3. <b>HTTP Link headers</b></h5>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<p>The last (and least common by far) way of associating an external stylesheet with your 
-pages is to use an HTTP Link header. This approach uses HTTP headers to replicate the 
-effects of a link element or &#64;import directive.</p>
+<p>The last (and least common by far) way of associating an external stylesheet with your pages is 
+to use an HTTP Link header. This approach uses HTTP headers to replicate the effects of a link element 
+or &#64;import directive.</p>
 
-<p>Adding a line such as this to the <i>.htaccess</i> file at the root level of your 
-server will make this happen for all pages on the site, where /style.css is the server 
-path of the stylesheet to be loaded:</p>
-<pre>
-  &quot;&lt;/style.css&gt;;rel=stylesheet;type=text/css;media=all&quot;
-</pre>
+<p>Adding a line such as this to the <i>.htaccess</i> file at the root level of your server will 
+make this happen for all pages on the site, where /style.css is the server path of the stylesheet 
+to be loaded:</p>
+
+<pre>&quot;&lt;/style.css&gt;;rel=stylesheet;type=text/css;media=all&quot;</pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <h5>Explanation of the attributes:</h5>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -521,18 +520,18 @@ mechanism by which a user agent decides, for example, what color to make an elem
 two different rules apply to it and each one tries to set a different color.<br>
 Here's how the cascade works:</p>
 <ol>
-  <li>Find all rules with a selector that matches a given element.</li>
-  <li>Sort all declarations applying to the given element by <i>explicit weight</i>. 
+  <li>1. Find all rules with a selector that matches a given element.</li>
+  <li>2. Sort all declarations applying to the given element by <i>explicit weight</i>. 
     Those rules that are marked !important have a higher explicit weight than those 
     that are not.</li>
-  <li>Sort all declarations applying to the given element by <i>origin</i>. There are 
+  <li>3. Sort all declarations applying to the given element by <i>origin</i>. There are 
     three basic origins: author, reader, and user agent. Under normal circumstances, 
     the author's styles win out over the reader's styles. Howerver, !important reader 
     styles are stronger than any other styles, including !important author styles. 
     Both author and reader styles override the user agent's default styles.</li>
-  <li>Sort all declarations applying to the given element by <i>specificity</i>. Those 
+  <li>4. Sort all declarations applying to the given element by <i>specificity</i>. Those 
     elements with a higher specificity have more weight than those with lower specificity.</li>
-  <li>Sort all declarations applying to the given element by <i>order</i>. The later a 
+  <li>5. Sort all declarations applying to the given element by <i>order</i>. The later a 
     declaration appears in the stylesheet or document, the more weight it is given. 
     Declarations that appear in an imported stylesheet are considered to come before 
     all declarations within the stylesheet that imports them.</li>
@@ -642,23 +641,23 @@ components of an element box.</p>
 <h4>The following rules apply to an element box:</h4>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <ul>
-  <li>By default, the background of the element box extends to the outer edge of the 
+  <li>- By default, the background of the element box extends to the outer edge of the 
     border, thus filling the content, padding, and border areas (though this can be 
     changed with background-clip). If the border has any transparent portions (e.g., it 
     is dotted or dashed), the element background will be visible in those portions. The
     background does not extend into the margin areas of the box. Any outlines are drawn 
     in the margin area and do not affect layout.</li>
-  <li>Only the margins, height, and width of an element box may be set to auto.</li>
-  <li>Only margins can be given negative values.</li>
-  <li>The padding and border widths of the element box default to 0 (zero), and the 
+  <li>- Only the margins, height, and width of an element box may be set to auto.</li>
+  <li>- Only margins can be given negative values.</li>
+  <li>- The padding and border widths of the element box default to 0 (zero), and the 
     border style defaults to none.</li>
-  <li>If box-sizing is content-box (the default value), the property width defines only 
+  <li>- If box-sizing is content-box (the default value), the property width defines only 
     the width of the content area; any padding, borders, or margins are added to it. The 
 	same is true for height with respect to the height.</li>
-  <li>If box-sizing is padding-box, the property width defines the total width of the 
+  <li>- If box-sizing is padding-box, the property width defines the total width of the 
     content and the padding. Any borders and margins are added to it. The same is true 
 	for height with respect to the height.</li>
-  <li>If box-sizing is border-box, the property width defines the total width of the 
+  <li>- If box-sizing is border-box, the property width defines the total width of the 
     content, padding, and borders; any margins are added to it. The same is true for 
 	height with respect to the height.</li>
 </ul>
@@ -668,18 +667,18 @@ components of an element box.</p>
 <p>An inline-level box in CSS generates one or more rectangular boxes called <i>inline 
 boxes</i>. The following rules apply to inline boxes:</p>
 <ul>
-  <li>width and height do not apply to nonreplaced inline boxes.</li>
-  <li>For the properties left, right, top, bottom, margin-left, margin-right, 
+  <li>- width and height do not apply to nonreplaced inline boxes.</li>
+  <li>- For the properties left, right, top, bottom, margin-left, margin-right, 
     margin-top, and margin-bottom, any value of auto is converted to 0 (zero).</li>
-  <li>For replaced inline boxes, the following rules apply:
+  <li>- For replaced inline boxes, the following rules apply:
     <ul>
-      <li>If height and width are both auto and the element has an intrinsic
+      <li>- If height and width are both auto and the element has an intrinsic
       width (e.g., an image), the value of width is equal to the element's
       intrinsic width. The same holds true for height.</li>
-      <li>If height and width are both auto and the element does not have an
+      <li>- If height and width are both auto and the element does not have an
       intrinsic width but does have an intrinsic height and layout ratio,
       then width is set to be the intrinsic height times the ratio.</li>
-      <li>If height and width are both auto and the element does not have an
+      <li>- If height and width are both auto and the element does not have an
       intrinsic height but does have an intrinsic width and layout ratio,
       then height is set to be the intrinsic width divided by the ratio.</li>
     </ul>
@@ -696,7 +695,7 @@ determined by taking the following factors into account:</p>
 <h5><i>Anonymous text</i></h5>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <ul style="list-style: none;">
-  <li>Any string of characters not contained within an inline element. Thus, in the markup:<br>
+  <li>* Any string of characters not contained within an inline element. Thus, in the markup:<br>
 
       <b>&lt;p&gt;</b>I&apos;m <b>&lt;em&gt;</b>so<b>&lt;/em&gt;</b> happy!<b>&lt;/p&gt;</b><br>
 
@@ -707,7 +706,7 @@ determined by taking the following factors into account:</p>
 <h5><i>Em-box</i></h5>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <ul>
-  <li>The space taken up by a capital letter M in the given font; otherwise known as 
+  <li>* The space taken up by a capital letter M in the given font; otherwise known as 
     the character box. Actual glyphs can be taller or shorter than their em-boxes, as 
     discussed in Chapter 5 of <a href="http://shop.oreilly.com/product/0636920012726.do">
     <i>CSS: The Definitive Guide</i></a>, the value of font-size determines the height 
@@ -717,7 +716,7 @@ determined by taking the following factors into account:</p>
 <h5><i>Content area</i></h5>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <ul>
-  <li>In nonreplaced elements, this can be the box described by the em-boxes of every 
+  <li>* In nonreplaced elements, this can be the box described by the em-boxes of every 
     character in the element, strung together, or else the box described by the character 
     glyphs in the element. In CSS2.1 and later, user agents can choose either. This text 
     uses the em-box definition for simplicity's sake. In replaced elements, the content 
@@ -727,7 +726,7 @@ determined by taking the following factors into account:</p>
 <h5><i>Leading</i></h5>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <ul>
-  <li>The difference between the values of font-size and lineheight. Half this difference 
+  <li>* The difference between the values of font-size and lineheight. Half this difference 
     is applied to the top and half to the bottom of the content area. These additions to 
     the content area are called, not surprisingly, <i>half-leading</i>. Leading is 
     applied only to nonreplaced elements.</li>
@@ -736,7 +735,7 @@ determined by taking the following factors into account:</p>
 <h5><i>Inline box</i></h5>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <ul>
-  <li>The box described by the addition of the leading to the content area. For nonreplaced 
+  <li>* The box described by the addition of the leading to the content area. For nonreplaced 
     elements, the height of the inline box of an element will be equal to the value for 
     line-height. For replaced elements, the height of the inline box of an element will be 
     equal to the content area, as leading is not applied to replaced elements.</li>
@@ -745,7 +744,7 @@ determined by taking the following factors into account:</p>
 <h5><i>Line box</i></h5>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <ul>
-  <li>The shortest box that bounds the highest and lowest points of the inline boxes that 
+  <li>* The shortest box that bounds the highest and lowest points of the inline boxes that 
     are found in the line. In other words, the top edge of the line box will be placed 
     along the top of the highest inline box top, and the bottom of the line box is placed 
     along the bottom of the lowest inline box bottom. (See Figure 1-3).</li>
@@ -769,26 +768,26 @@ around the element. Any floated element automatically generates a block box, reg
 of what type of box it would generate if not floated. A floated element is placed 
 according to the following rules:</p>
 <ul>
-  <li>The left (or right) outer edge of a floated element may not be to the left (or right) 
+  <li>- The left (or right) outer edge of a floated element may not be to the left (or right) 
     of the inner edge of its containing block.</li>
-  <li>The left (or right) outer edge of a floated element must be to the right (or left) 
+  <li>- The left (or right) outer edge of a floated element must be to the right (or left) 
     of the right (left) outer edge of a leftfloating (or right-floating) element that 
     occurs earlier in the document's source, unless the top of the latter element is 
     below the bottom of the former.</li>
-  <li>The right outer edge of a left-floating element may not be to the right of the left 
+  <li>- The right outer edge of a left-floating element may not be to the right of the left 
     outer edge of any right-floating element to its right. The left outer edge of a 
     right-floating element may not be to the left of the right outer edge of any 
     left-floating element to its left.</li>
-  <li>A floating element's top may not be higher than the inner top of its containing block.</li>
-  <li>A floating element's top may not be higher than the top of any earlier floating or 
+  <li>- A floating element's top may not be higher than the inner top of its containing block.</li>
+  <li>- A floating element's top may not be higher than the top of any earlier floating or 
     block-level element.</li>
-  <li>A floating element's top may not be higher than the top of any line box with content 
+  <li>- A floating element's top may not be higher than the top of any line box with content 
     that precedes the floating element.</li>
-  <li>A left (or right) floating element that has another floating element to its left 
+  <li>- A left (or right) floating element that has another floating element to its left 
     (right) may not have its right (left) outer edge to the right (left) of its 
     containing block's right (left) edge.</li>
-  <li>A floating element must be placed as high as possible.</li>
-  <li>A left-floating element must be put as far to the left as possible, and a right-floating 
+  <li>- A floating element must be placed as high as possible.</li>
+  <li>- A left-floating element must be put as far to the left as possible, and a right-floating 
     element as far to the right as possible. A higher position is preferred to one that is 
     farther to the right or left.</li>
 </ul>
@@ -806,7 +805,7 @@ that element.</p>
 <h5><i>Static</i></h5>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <ul>
-  <li>The element's box is generated as normal. Block-level elements generate a rectangular 
+  <li>* The element's box is generated as normal. Block-level elements generate a rectangular 
     box that is part of the document's flow, and inline-level boxes generate one or more 
     line boxes that flow within their parent element.</li>
 </ul>
@@ -814,7 +813,7 @@ that element.</p>
 <h5><i>Relative</i></h5>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <ul>
-  <li>The element's box is offset by some distance. Its containing block can be considered 
+  <li>* The element's box is offset by some distance. Its containing block can be considered 
     to be the area that the element would occupy if it were not positioned. The element 
     retains the shape it would have had were it not positioned, and the space that the 
     element would otherwise have occupied in the normal flow is preserved.</li>
@@ -823,7 +822,7 @@ that element.</p>
 <h5><i>Absolute</i></h5>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <ul>
-  <li>The element's box is completely removed from the flow of the document and positioned 
+  <li>* The element's box is completely removed from the flow of the document and positioned 
     with respect to its containing block, which may be another element in the document or 
     the initial containing block (described in the next section). Whatever space the element 
     might have occupied in the normal document flow is closed up, as though the element did 
@@ -834,7 +833,7 @@ that element.</p>
 <h5><i>Sticky</i></h5>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <ul>
-  <li>The element's box stays in the normal flow until it reaches a sticky edge of the 
+  <li>* The element's box stays in the normal flow until it reaches a sticky edge of the 
     containing box, at which time it "sticks" there as if absolutely positioned. The space 
     that the element would otherwise have occupied in the normal flow is preserved.</li>
 </ul>
@@ -842,39 +841,40 @@ that element.</p>
 <h5><i>Fixed</i></h5>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <ul>
-  <li>The element's box behaves as though set to absolute, but its containing block is 
+  <li>* The element's box behaves as though set to absolute, but its containing block is 
     the viewport itself.</li>
 </ul>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <h4>The Containing Block</h4>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <p>The containing block of a positioned element is determined as follows:</p>
-<ol type="1">
-  <li>The containing block of the <i>root element</i> (also called the <i>initial
+
+<ol>
+  <li>1. The containing block of the <i>root element</i> (also called the <i>initial
     containing block</i>) is established by the user agent. In HTML, the
     root element is the html element, although some browsers may use
     body.</li>
-  <li>For nonroot elements, if an element's position value is relative or static, its 
+  <li>2. For nonroot elements, if an element's position value is relative or static, its 
     containing block is formed by the content edge of the nearest block-level, table-, 
     cell-, or inline-block ancestor box. Despite this rule, relatively positioned
     elements are still simply offset (not positioned with respect to the containing 
     block described here) and statically positioned elements do not move from their 
     place in the normal flow.</li>
-  <li>For nonroot elements that have a position value of absolute, the containing block 
+  <li>3. For nonroot elements that have a position value of absolute, the containing block 
     is set to the nearest ancestor (of any kind) that has a position value other than 
     static, a filter value other than none, or a transform value other than none. This 
     happens as follows:
-    <ol type="a">
-      <li>If the ancestor is block-level, the containing block is that element's outer 
+    <ol>
+      <li>a. If the ancestor is block-level, the containing block is that element's outer 
         padding edge; in other words, it is the area bounded by the element's border.</li>
-      <li>If the ancestor is inline-level, the containing block is set to the content 
+      <li>b. If the ancestor is inline-level, the containing block is set to the content 
         edge of the ancestor. In left-to-right languages, the top and left of the 
         containing block are the top and left content edges of the first box in the 
         ancestor, and the bottom and right edges are the bottom and right content edges 
         of the last box. In rightto-left languages, the right edge of the containing 
         block corresponds to the right content edge of the first box, and the left is 
         taken from the last box. The top and bottom are the same.</li>
-      <li>If there are no ancestors as described in 3a and 3b, the absolutely positioned 
+      <li>c. If there are no ancestors as described in 3a and 3b, the absolutely positioned 
         element's containing block is defined to be the initial containing block.</li>
     </ol>
   </li>
@@ -910,21 +910,21 @@ properties.</p>
 <p>The process of calculating flex sizes is fairly complex. Here's a simplified version 
 of the algorithm:</p>
 <ol>
-  <li>Add together all the hypothetical outer main sizes of the flex items in a flex 
+  <li>1. Add together all the hypothetical outer main sizes of the flex items in a flex 
     container. If the sum is smaller than the container size, the <i>flex factor</i> is 
     to grow; otherwise, the flex factor is to shrink.</li>
-  <li>Any items that are inflexible are frozen in size. These are:
+  <li>2. Any items that are inflexible are frozen in size. These are:
     <ul>
-      <li>Any item with a flex factor of zero</li>
-      <li>Any item whose <i>hypothetical main size</i> is greater (if growing) or
+      <li>- Any item with a flex factor of zero</li>
+      <li>- Any item whose <i>hypothetical main size</i> is greater (if growing) or
         smaller (if shrinking) than its <i>base size</i></li>
-      <li>Any item with a growth factor (if growing) or shrink factor (if shrinking) 
+      <li>- Any item with a growth factor (if growing) or shrink factor (if shrinking) 
       of zero.</li>
     </ul>
   </li>
-  <li>Calculate the <i>initial free space</i> by finding the difference between the outer 
+  <li>3. Calculate the <i>initial free space</i> by finding the difference between the outer 
     sizes of all flex items and the size of the flex container.</li>
-  <li>Distribute the available free space to the flex items. The amount given to each flex 
+  <li>4. Distribute the available free space to the flex items. The amount given to each flex 
     item is initially determined by the ratio of its flex factor to the sum of all the items' 
     flex factors. If an item will be grown past its maximum allowed size, or shrunk below its
     minimum allowed size, set the size to be the allowed maximum (if growing) or minimum (if 
@@ -947,23 +947,23 @@ the container. All the direct children of the grid container element are grid it
 
 <p>A grid is made up of the following components, as illustrated in Figure 1-5:</p>
 <ul>
-  <li>A <i>grid line</i> is a horizontal or vertical dividing line within the
+  <li>- A <i>grid line</i> is a horizontal or vertical dividing line within the
     grid container. These are placed as the author directs and create
     grid <i>cells</i>, <i>areas</i>, and <i>tracks</i> by implication. Grid lines can
     be labeled with <i>identifier tokens</i>; that's the basis of grid item
     placement.</li>
-  <li>A <i>grid cell</i> is any space bounded by four grid lines, with no other
+  <li>- A <i>grid cell</i> is any space bounded by four grid lines, with no other
     grid lines running through it, analogous to a table cell. This is
     the smallest unit of area in grid layout. Grid cells cannot be
     directly addressed with CSS grid properties; that is, no property
     allows you to say a grid item should be associated with a given
     cell. (But see the next point for more details.)</li>
-  <li>A <i>grid area</i> is any rectangular area bounded by four grid lines and
+  <li>- A <i>grid area</i> is any rectangular area bounded by four grid lines and
     made up of one or more grid cells. An area can be as small as a
     single cell or as large as all the cells in the grid. Grid areas are
     directly addressable by CSS grid properties, which allow you to
     define the areas and then associate grid items with them.</li>
-  <li>A <i>grid track</i> is a continuous run between two adjacent grid
+  <li>- A <i>grid track</i> is a continuous run between two adjacent grid
     lines---in other words, a <i>grid column</i> or a <i>grid row</i>. It goes
     from one edge of the grid container to the other. The size of a grid
     track is dependent on the placement of the grid lines that define
@@ -1060,30 +1060,31 @@ because their contents directly affect their sizing.</p>
 <p>The process of actually determining the size of grid tracks, including what to do when 
 track sizes are overconstrained or could lead to circular dependencies, is too long to go 
 into here. In broad strokes, this is the process to find the track sizes:</p>
-<ol type="1"
-  <li>Initialize track sizes, including determining the minimum and maximum sizes for each 
+
+<ol>
+  <li>1. Initialize track sizes, including determining the minimum and maximum sizes for each 
     track. Resolve fixed track sizes to absolute length values. Set intrinsically sized 
 	tracks' minimum size to zero and maximum size to unlimited. Flexible tracks are left 
 	flexible, with an initial minimum size of zero.</li>
-  <li>Determine the size of intrinsic (e.g., auto) tracks, resolving each to an absolute 
+  <li>2. Determine the size of intrinsic (e.g., auto) tracks, resolving each to an absolute 
     length. First find sizes based on the items within the track, and then gradually add 
 	space to encompass items that span multiple tracks.</li>
-  <li>Maximize tracks up to their growth limit (this is determined automatically).</li>
-  <li>Expand flexible (fr) tracks by adding space according to the ratio of each track's 
+  <li>3. Maximize tracks up to their growth limit (this is determined automatically).</li>
+  <li>4. Expand flexible (fr) tracks by adding space according to the ratio of each track's 
     flex factor to the total of all flex factors in the grid track.</li>
-  <li>Expand any auto-sized tracks by dividing the remaining free space (if any) by the 
+  <li>5. Expand any auto-sized tracks by dividing the remaining free space (if any) by the 
     number of auto tracks and expanding them equally.</li>
 </ol>
+
 <p>The details of each step are quite lengthy, and can be found in section 11 of the 
 <a href="https://www.w3.org/TR/css-grid-1/#layout-algorithm" target="_blank" 
 rel="noreferrer noopener">CSS Grid Layout Module Level 1 documentation</a>.</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <h3 id="ch1-13-1">1.13. Table Layout</h3>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<p>The layout of tables can get quite complicated, especially because CSS
-defines two different ways to calculate table and cell widths, as well
-as two ways to handle the borders of tables and elements internal to the
-table. Figure 1-6 illustrates the components of a table.</p>
+<p>The layout of tables can get quite complicated, especially because CSS defines two different ways 
+to calculate table and cell widths, as well as two ways to handle the borders of tables and elements 
+internal to the table. Figure 1-6 illustrates the components of a table.</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 07. Table layout components ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <p align="center">
@@ -1099,19 +1100,19 @@ table. Figure 1-6 illustrates the components of a table.</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <p>In general, a table is laid out according to the following principles:</p>
 <ul>
-  <li>Each row box encompasses a single row of grid cells. All of the row
+  <li>- Each row box encompasses a single row of grid cells. All of the row
     boxes in a table fill the table from top to bottom in the order they
     occur in the source document. Thus, the table contains as many grid
     rows as there are row elements.</li>
-  <li>A row group's box encompasses the same grid cells as the row boxes
+  <li>- A row group's box encompasses the same grid cells as the row boxes
     that it contains.</li>
-  <li>A column box encompasses one or more columns of grid cells. Column
+  <li>- A column box encompasses one or more columns of grid cells. Column
     boxes are placed next to each other in the order in which they
     occur. The first column box is on the left for left-to-right
     languages and on the right for rightto-left languages.</li>
-  <li>A column group's box encompasses the same grid cells as the column
+  <li>- A column group's box encompasses the same grid cells as the column
     boxes that it contains.</li>
-  <li>Although cells may span several rows or columns, CSS does not define how that 
+  <li>- Although cells may span several rows or columns, CSS does not define how that 
     happens. It is instead left to the document language to define spanning. Each spanned 
 	cell is a rectangular box one or more grid cells wide and high. The top row of this 
 	rectangle is in the row that is parent to the cell. The cell's rectangle must be as 
@@ -1121,7 +1122,7 @@ table. Figure 1-6 illustrates the components of a table.</p>
 	a spanned cell must be as far to the right as possible without overlapping other cells, 
 	and must be to the left of all cells in the same row that come after it in the document 
 	source.</li>
-  <li>A cell's box cannot extend beyond the last row box of a table or row group. If the 
+  <li>- A cell's box cannot extend beyond the last row box of a table or row group. If the 
     table structure causes this condition, the cell must be shortened until it fits within 
 	the table or row group that encloses it.</li>
 </ul>
@@ -1131,15 +1132,16 @@ table. Figure 1-6 illustrates the components of a table.</p>
 <p>The fixed-layout model is fast because its layout doesn't depend on the contents of 
 table cells; it's driven by the width values of the table, columns, and cells within the 
 first row of the table. The fixed-layout model uses the following steps:</p>
-<ol type="1">
-  <li>Any column element whose width property has a value other than auto sets the width 
+<ol>
+  <li>1. Any column element whose width property has a value other than auto sets the width 
     for that column.</li>
-  <li>If a column has an auto width, but the cell in the first row of the table within 
+  <li>2. If a column has an auto width, but the cell in the first row of the table within 
     that column has a width other than auto, that cell sets the width for that column. If 
 	the cell spans multiple columns, the width is divided equally among the columns.</li>
-  <li>Any columns that are still auto-sized are sized so that their widths are as equal 
+  <li>3. Any columns that are still auto-sized are sized so that their widths are as equal 
     as possible.</li>
 </ol>
+
 <p>At that point, the width of the table is set to be either the value of width for the 
 table or the sum of the column widths, whichever is greater. If the table turns out to be 
 wider than the column widths, the difference is divided by the number of columns and added 
@@ -1154,28 +1156,28 @@ triggered by a table with a width of auto, regardless of the value of table-layo
 although this is not assured.</p>
 
 <p>Here's how the model works:</p>
-<ol type="1">
-  <li>For each cell in a column, calculate both the minimum and maximum cell width.</li>
-  <li>Determine the minimum width required to display the content. In determining the 
+<ol>
+  <li>1. For each cell in a column, calculate both the minimum and maximum cell width.</li>
+  <li>2. Determine the minimum width required to display the content. In determining the 
     minimum content width, the content can flow to any number of lines, but it may not 
 	stick out of the cell's box. If the cell's width value is larger than the minimum 
 	possible width, the minimum cell width is set to that value. If the cell's width 
 	value is auto, the minimum cell width is set to the minimum content width.</li>
-  <li>For the maximum width, determine the width required to display the content without 
+  <li>3. For the maximum width, determine the width required to display the content without 
     any line-breaking, other than that forced by explicit line-breaking (e.g., due to the 
 	&lt;br&gt; element). That value is the maximum cell width.</li>
-  <li>For each column, calculate both the minimum and maximum column width:
+  <li>4. For each column, calculate both the minimum and maximum column width:
     <ol type-="a">
-      <li>The column's minimum width is determined by the largest minimum cell width of 
+      <li>a. The column's minimum width is determined by the largest minimum cell width of 
 	    the cells within the column. If the column has been given an explicit width value 
 		that is larger than any of the minimum cell widths within the column, the minimum 
 		column width is set to the value of width.</li>
-      <li>For the maximum width, take the largest maximum cell width of the cells within 
+      <li>b. For the maximum width, take the largest maximum cell width of the cells within 
 	    the column. If the column has an explicit width value larger than any of the 
 		maximum cell widths within the column, the maximum column width is set to the 
 		value of width. These two behaviors recreate the traditional HTML table behavior 
 		of forcibly expanding any column to be as wide as its widest cell.</li>
-      <li>In cases where a cell spans more than one column, the sum of the minimum column 
+      <li>c. In cases where a cell spans more than one column, the sum of the minimum column 
 	    widths must be equal to the minimum cell width for the spanning cell. Similarly, 
 		the sum of the maximum column widths must equal the spanning cell's maximum width. 
 		User agents should divide any changes in column widths equally among the spanned 
@@ -1183,62 +1185,67 @@ although this is not assured.</p>
     </ol>
   </li>
 </ol>
+
 <p>In addition, the user agent must take into account that when a column width has a 
 percentage value for its width, the percentage is calculated in relation to the width of 
 the table---even though that width is not known yet. The user agent must hang on to the 
 percentage value and use it in the next part of the algorithm. Once the user agent has 
 determined how wide or narrow each column can be, it can calculate the width of the table. 
 This happens as follows:</p>
-<ol type="1">
-  <li>If the computed width of the table is not auto, the computed table width is compared 
+
+<ol>
+  <li>1. If the computed width of the table is not auto, the computed table width is compared 
     to the sum of all the column widths plus any borders and cell spacing. (Columns with 
 	percentage widths are likely calculated at this time.) The larger of the two values 
 	is the final width of the table. If the table's computed width is larger than the sum 
 	of the column widths, borders, and cell spacing, all columns are increased in width by 
 	an equal amount so they fill the computed width of the table.</li>
-  <li>If the computed width of the table is auto, the final width of the table is 
+  <li>2. If the computed width of the table is auto, the final width of the table is 
     determined by summing up the column widths, borders, and cell spacing. This means the 
 	table will be only as wide as needed to display its content, just as with traditional 
 	HTML tables. Any columns with percentage widths use that percentage as a constraint,
     but it is a constraint that a user agent does not have to satisfy.</li>
 </ol>
-<p>Once the last step is completed (and only then), the user agent can actually lay out 
-the table.</p>
+
+<p>Once the last step is completed (and only then), the user agent can actually lay out the table.</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <h4>Collapsing Cell Borders</h4>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <p>The collapsing cell model largely describes how HTML tables have always been laid out 
 when they have no cell spacing. The following rules govern this model:</p>
 <ul>
-  <li>Table elements cannot have any padding, although they can have margins. Thus, there 
+  <li>- Table elements cannot have any padding, although they can have margins. Thus, there 
     is never separation between the border around the outside of the table and its 
 	outermost cells.</li>
-  <li>Borders can be applied to cells, rows, row groups, columns, and column groups. The 
+  <li>- Borders can be applied to cells, rows, row groups, columns, and column groups. The 
     table element itself can, as always, have a border.</li>
-  <li>There is never any separation between cell borders. In fact, borders collapse into 
+  <li>- There is never any separation between cell borders. In fact, borders collapse into 
     each other where they adjoin so that only one of the collapsing borders is actually 
 	drawn. This is somewhat akin to margin collapsing, where the largest margin wins. 
 	When cell borders collapse, the "most interesting" border wins.</li>
-  <li>Once they are collapsed, the borders between cells are centered on the hypothetical 
+  <li>- Once they are collapsed, the borders between cells are centered on the hypothetical 
     grid lines between the cells.</li>
 </ul>
+
 <h5>Collapsing borders</h5>
+
 <p>When two or more borders are adjacent, they collapse into each other, as shown in 
 Figure 1-7. There are strict rules governing which borders will win and which will not:</p>
+
 <ol type="1">
-  <li>If one of the collapsing borders has a border-style of hidden, it takes precedence 
+  <li>1. If one of the collapsing borders has a border-style of hidden, it takes precedence 
     over all other collapsing borders: all borders at this location are hidden.</li>
-  <li>If one of the collapsing borders has a border-style of none, it takes the lowest 
+  <li>2. If one of the collapsing borders has a border-style of none, it takes the lowest 
     priority. There will be no border drawn at this location only if all of the borders 
 	meeting at this location have a value of none. Note that none is the default value 
 	for border-style.</li>
-  <li>If at least one of the collapsing borders has a value other than either none or 
+  <li>3. If at least one of the collapsing borders has a value other than either none or 
     hidden, narrow borders lose out to wider ones. If two or more of the collapsing 
 	borders have the same width, the border style is taken in the following order, from 
 	most preferred to least: double, solid, dashed, dotted, ridge, outset, groove, inset. 
 	Thus, if two borders with the same width collapse and one is dashed while the other 
 	is outset, the border at that location will be dashed.</li>
-  <li>If collapsing borders have the same style and width but differ in color, the color 
+  <li>4. If collapsing borders have the same style and width but differ in color, the color 
     used is taken from an element in the following list, from most preferred to least: 
 	cell, row, row group, column, column group, table. Thus, if the borders of a cell and 
 	a column---identical in every way except color---collapse, the cell's border color 
@@ -1261,16 +1268,16 @@ Figure 1-7. There are strict rules governing which borders will win and which wi
 <h3>Vertical Alignment Within Cells</h3>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <p>The following describes the detailed process for aligning cell contents within a row:</p>
-<ol type="1">
-  <li>If any of the cells are baseline-aligned, the row's baseline is determined and the 
+<ol>
+  <li>1. If any of the cells are baseline-aligned, the row's baseline is determined and the 
     content of the baseline-aligned cells is placed.</li>
-  <li>Any top-aligned cell has its content placed. The row now has a provisional height, 
+  <li>2. Any top-aligned cell has its content placed. The row now has a provisional height, 
     which is defined by the lowest cell bottom of the cells that have already had their 
 	content placed.</li>
-  <li>If any remaining cells are middle- or bottom-aligned, and the content height is 
+  <li>3. If any remaining cells are middle- or bottom-aligned, and the content height is 
     taller than the provisional row height, the height of the row is increased by 
 	lowering the baseline in order to enclose the tallest of those cells.</li>
-  <li>All remaining cells have their content placed. In any cell with contents shorter 
+  <li>4. All remaining cells have their content placed. In any cell with contents shorter 
     than the row height, the cell's padding is increased in order to match the height of 
 	the row.</li>
 </ol>
@@ -1286,6 +1293,7 @@ number of interesting things with CSS.</p>
 <p>Keywords are defined on a per-property basis and have a meaning specific only to a 
 given property. For example, normal has totally unique meanings for the properties font-
 variant and letter-spacing. Keywords, like property names, are not case-sensitive.</p>
+
 <p>CSS defines three "global" keywords that are accepted by every property in the 
 specification:</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -1302,7 +1310,6 @@ module. For example, fontstyle: initial sets the value of font-style to normal r
 of the font-style value that would have been inherited from the parent element. In cases 
 where the initial value is defined as determined by the user agent, such as for font-size, 
 the value is set to the "default" defined by the user agent's preferences.</p>
-
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <h4>unset</h4>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -1403,7 +1410,6 @@ background to be the same color as its foreground (not recommended). When applie
 color property, it is equivalent to declaring color: inherit. It can also be used on
 borders; border: 1px solid is equivalent to border: 1px solid currentColor. This can be 
 quite useful when (un)setting a border's color via DOM scripting.</p>
-
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <h4><i><span class="newFont">transparent</span></i></h4>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -1651,15 +1657,15 @@ permitted in calc().</p>
 <p>The basic limitation is that calc() does simple type-checking to make sure that units 
 are compatible:</p>
 <ol>
-  <li>To either side of a + or -- operator, both values must have the same
+  <li>1. To either side of a + or -- operator, both values must have the same
     unit type or must both be <i>&lt;number&gt;</i> and/or <i>&lt;integer&gt;</i> values
     (in which case, the result is a <i>&lt;number&gt;</i>).</li>
-  <li>Given a &ast; operator, one of the values involved must be a <i>&lt;number&gt;</i> 
+  <li>2. Given a &ast; operator, one of the values involved must be a <i>&lt;number&gt;</i> 
     (which, remember, includes <i>&lt;integer&gt;</i> values).</li>
-  <li>Given a / operator, the value on the <i>right</i> side must be a <i>&lt;number&gt;</i>. If 
+  <li>3. Given a / operator, the value on the <i>right</i> side must be a <i>&lt;number&gt;</i>. If 
     the left-side value is an <i>&lt;integer&gt;</i>, the result is a <i>&lt;number&gt;</i>. 
     Otherwise, the result is of the unit used on the left side.</li>
-  <li>Any circumstance that creates division by zero makes the value invalid.</li>
+  <li>4. Any circumstance that creates division by zero makes the value invalid.</li>
 </ol>
 <p>There's one more notable limitation: whitespace is <i>required</i> to either
 side of the + and - operators, while it is not for &ast; and /. This avoids
@@ -3299,34 +3305,34 @@ type like a color is permitted, it will be represented using
 <p>There are a number of ways to combine components of a value definition:</p>
 
 <ul>
-  <li>Two or more keywords strung together with only space separating them means that all 
+  <li>- Two or more keywords strung together with only space separating them means that all 
     of them must occur in the given order.</li>
-  <li>If a vertical bar separates alternatives (X &vert; Y), then any one of them must 
+  <li>- If a vertical bar separates alternatives (X &vert; Y), then any one of them must 
     occur, but only one.</li>
-  <li>A vertical double bar (X ‖ Y) means that X, Y, or both must occur,
+  <li>- A vertical double bar (X ‖ Y) means that X, Y, or both must occur,
     but they may appear in any order.</li>
-  <li>A double ampersand (X && Y) means both X and Y must occur, though they may appear 
+  <li>- A double ampersand (X && Y) means both X and Y must occur, though they may appear 
     in any order. • Brackets (&lbrack;...&rbrack;) group things together. Thus 
 	"&lbrack;please ‖ help ‖ me&rbrack; do this" means that one or more of the words 
 	please, help, and me must appear (in any order, and at most once). do this must 
 	always appear, with those words in that order.</li>
-  <li>Every component or bracketed group may (or may not) be followed by one of these 
+  <li>- Every component or bracketed group may (or may not) be followed by one of these 
     modifiers:</li>
 </ul>
 
 <ul>
-  <li>An asterisk (&ast;) indicates that the preceding value or bracketed group is 
+  <li>- An asterisk (&ast;) indicates that the preceding value or bracketed group is 
     repeated zero or more times.</li>
-  <li>A plus (+) indicates that the preceding value or bracketed group is repeated one 
+  <li>- A plus (+) indicates that the preceding value or bracketed group is repeated one 
     or more times.</li>
-  <li>An octothorp (#) indicates that the preceding value or bracketed group is 
+  <li>- An octothorp (#) indicates that the preceding value or bracketed group is 
     repeated one or more times, separated by commas as needed.</li>
-  <li>A question mark (?) indicates that the preceding value or bracketed group is 
+  <li>- A question mark (?) indicates that the preceding value or bracketed group is 
     optional.</li>
-  <li>An exclamation point (!) indicates that the preceding value or bracketed group is 
+  <li>- An exclamation point (!) indicates that the preceding value or bracketed group is 
     required, and thus must result in at least one value, even if the syntax would seem 
 	to indicate otherwise.</li>
-  <li>A pair of numbers in curly braces ({M,N}) indicates that the preceding value or 
+  <li>- A pair of numbers in curly braces ({M,N}) indicates that the preceding value or 
     bracketed group is repeated at least M and at most N times.</li>
 </ul>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -6340,7 +6346,7 @@ rgba(255,0,0,0.5);}
       margin edge of a floated element on the declared side.</td>
     </tr>
     <tr>
-      <td><b>Examples</b></td>
+      <td><b>Example</b></td>
       <td>
 <pre>h1 {clear: both;} p + h3 {clear: right;}</pre>
       </td>
