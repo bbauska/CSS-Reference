@@ -2637,78 +2637,162 @@ ul &ast;:not(li) {text-indent: 2em;}
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <h3 id="ch3-4-1">3.4. Interaction Pseudo-Classes</h3>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<p>The pseudo-classes listed here are all related to the user's interaction
-with the document: whether styling different link states, highlighting
-an element that's the target of a fragment identifier, or styling form
-elements based on their being enabled or disabled.</p>
+<p>The pseudo-classes listed here are all related to the user's interaction with the document: 
+whether styling different link states, highlighting an element that's the target of a fragment 
+identifier, or styling form elements based on their being enabled or disabled.</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<h3>:active</h3>  
+<!-- :active -->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<p><b>Applies to</b>  Any interaction element</p>
-
-<p><b>Description</b>  Matches an element during the period in which it is being 
-activated. The most common example is clicking on a hyperlink in an HTML document: 
-while the mouse button is being held down, the link is active. There are other ways 
-to activate elements, and other elements can in theory be activated, although CSS 
-doesn't define them.</p>
-
-<p><b>Examples</b></p>
+<table style="width:500px;">
+  <thead>
+    <tr>
+      <th style="width:200px;"><h3>:active</h3></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Applies to </b></td>
+      <td>Any interaction element</td>
+    </tr>
+    <tr>
+      <td><b>Description</b></td>
+      <td>Matches an element during the period in which it is being 
+	  activated. The most common example is clicking on a hyperlink in an HTML document: 
+	  while the mouse button is being held down, the link is active. There are other ways 
+	  to activate elements, and other elements can in theory be activated, although CSS 
+	  doesn't define them.</td>
+    </tr>
+	<tr>
+      <td><b>Example</b></td>
+	  <td>
 <pre>
 a:active {color: red;}
 &ast;:active {background: blue;}
 </pre>
+      </td>
+	 </tr>
+  </tbody>
+</table>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<h3>:checked</h3> 
+<!-- :checked -->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<p><b>Applies to</b>  Any interaction element that has an on/off state</p>
-
-<p><b>Description</b>  Matches any user interface element that has been "toggled on," 
-such as a checked checkbox or a filled radio button.</p>
-
-<p><b>Examples</b></p>
+<table style="width:500px;">
+  <thead>
+    <tr>
+      <th style="width:200px;"><h3>:checked</h3></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Applies to </b></td>
+      <td>Any interaction element that has an on/off state</td>
+    </tr>
+    <tr>
+      <td><b>Description</b></td>
+      <td>Matches any user interface element that has been "toggled on," 
+	  such as a checked checkbox or a filled radio button.</td>
+	</tr>
+	<tr>
+	  <td><b>Example</b></td>
+	  <td>
 <pre>
 input:checked {
  outline: 3px solid rgba(127,127,127,0.5);}
 input&lbrack;type=&quot;checkbox&quot;&rbrack;:checked {
   box-shadow: red 0 0 5px;} 
 </pre>
+      </td>
+	</tr>
+  </tbody>
+</table>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<h3>:disabled</h3> 
+<!-- :disabled -->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<p><b>Applies to</b>  Any interaction element</p>
-<p><b>Description</b>  Matches user interface elements that are not able to accept user 
-input because of language attributes or other nonpresentational means; for example, 
-&lt;input type=&quot;text&quot; disabled&gt; in HTML5. Note that :disabled does 
-<i>not</i> apply when an input element has simply been removed from the viewport 
-with properties like position or display.</p>
-
-<p><b>Example</b></p>
-<pre>input:disabled {opacity: 0.5;}</pre>
+<table style="width:500px;">
+  <thead>
+    <tr>
+      <th style="width:200px;"><h3>:disabled</h3></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Applies to </b></td>
+      <td>Any interaction element</td>
+    </tr>
+    <tr>
+      <td><b>Description</b></td>
+      <td>Matches user interface elements that are not able to accept user 
+	  input because of language attributes or other nonpresentational means; for example, 
+	  &lt;input type=&quot;text&quot; disabled&gt; in HTML5. Note that :disabled does 
+	  <i>not</i> apply when an input element has simply been removed from the viewport 
+	  with properties like position or display.</td>
+      </td>
+	</tr>
+	<tr>
+	  <td><b>Example</b></td>
+	  <td><pre>input:disabled {opacity: 0.5;}</pre></td>
+	</tr>
+  </tbody>
+</table>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<h3>:enabled</h3>
+<!-- :enabled -->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<p><b>Applies to</b>  Any interaction element</p>
-<p><b>Description</b>  Matches user interface elements that are able to accept user input 
-and that can be set to "enabled" and "disabled" states through the markup language itself. 
-This includes any form input element in (X)HTML, but does not include hyperlinks.</p>
-
-<p><b>Example</b></p>
-<pre>input:enabled {background: #FCC;}</pre>
+<table style="width:500px;">
+  <thead>
+    <tr>
+      <th style="width:200px;"><h3>:enabled</h3></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Applies to </b></td>
+      <td>Any interaction element</td>
+    </tr>
+    <tr>
+      <td><b>Description</b></td>
+      <td>Matches user interface elements that are able to accept user input 
+	  and that can be set to "enabled" and "disabled" states through the markup language itself. 
+	  This includes any form input element in (X)HTML, but does not include hyperlinks.</td>
+    </tr>
+	<tr>
+	  <td><b>Example</b></td>
+	  <td><pre>input:enabled {background: #FCC;}</pre></td>
+    </tr>
+  </tbody>
+</table>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<h3>:focus</h3>
+<!-- :focus -->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<p><b>Applies to</b>  Any interaction element</p>
-<p><b>Description</b>  Matches an element during the period in which it has focus. One 
-example from HTML is an input box that has the text-input cursor within it such that 
-when the user starts typing, text will be entered into that box. Other elements, such 
-as hyperlinks, can also have focus; however, CSS does not define which elements may or 
-may not have focus.</p>
-
-<p><b>Examples</b></p>
+<table style="width:500px;">
+  <thead>
+    <tr>
+      <th style="width:200px;"><h3>:focus</h3></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Applies to </b></td>
+      <td>Any interaction element</td>
+    </tr>
+    <tr>
+      <td><b>Description</b></td>
+      <td>Matches an element during the period in which it has focus. One 
+	  example from HTML is an input box that has the text-input cursor within it such that 
+	  when the user starts typing, text will be entered into that box. Other elements, such 
+	  as hyperlinks, can also have focus; however, CSS does not define which elements may or 
+	  may not have focus.</td>
+    </tr>
+	<tr>
+	  <td><b>Examples</b></td>
+	  <td>
 <pre>
 a:focus {outline: 1px dotted red;}
 input:focus {background: yellow;}
 </pre>
+      </td>
+	</tr>
+  </tbody>
+</table>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!-- :hover  -->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -5701,7 +5785,6 @@ h1 {border-top: dashed 1px gray;}
     </tr>
   </tbody>
 </table>
-<p><b>Examples</b></p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!-- border-top-color  Inh. N Anim. Y  -->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
