@@ -22,7 +22,6 @@ main > nav {
   padding-left: 0;
   border-left: 1px solid #efefef;
 }
-
 .section-nav a {
   text-decoration: none;
   display: block;
@@ -39,7 +38,6 @@ main > nav {
 * {
   box-sizing: border-box;
 }
-
 html, body {
   background: #fff;
 }
@@ -55,6 +53,12 @@ ul, ol {
 }
 li {
   margin-left: 1.3rem;
+}
+/* Color only the bullets red */
+li::marker {
+  color: red;
+  font-size: 1.5em;
+  content: "👉 "; /* Use emojis as bullets */
 }
 h1 {
   font-weight: 300;
