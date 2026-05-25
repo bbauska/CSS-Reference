@@ -30,7 +30,6 @@ main > nav {
   color: #ccc;
   transition: all 50ms ease-in-out; /* 💡 This small transition makes setting of the active state smooth */
 }
-
 .section-nav a:hover,
 .section-nav a:focus {
   color: #666;
@@ -44,7 +43,6 @@ main > nav {
 html, body {
   background: #fff;
 }
-
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", 
   "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -58,7 +56,6 @@ ul, ol {
 li {
   margin-left: 1.3rem;
 }
-
 h1 {
   font-weight: 300;
 }
@@ -71,7 +68,6 @@ main {
   width: 90%;
   margin: 0 auto;
 }
-
 /** enlarge the sections for this demo, so that we have a long scrollable page **/
 section {
   padding-bottom: 20rem;
@@ -94,4 +90,19 @@ section {
 }
 #myBtn:hover {
   background-color: #555;  /* very dark gray */
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+@media screen and (max-width: 576px) {
+  tr {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  td {
+    width: 100%;
+  }
 }
