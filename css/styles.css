@@ -55,7 +55,7 @@ li {
   margin-left: 2.3rem;  /* 1.3rem; */
 }
 /* Color only the bullets red */
-li::marker {
+ul li::marker {
   color: red;
   font-size: 1.5em;
   content: "👉 "; /* Use emojis as bullets */
