@@ -52,7 +52,7 @@ ul, ol {
   padding: 0;
 }
 li {
-  margin-left: 1.3rem;
+  margin-left: 2.3rem;  /* 1.3rem; */
 }
 /* Color only the bullets red */
 li::marker {
