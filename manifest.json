@@ -1,7 +1,7 @@
 {
   "name": "CSS Reference Website",
   "short_name": "CSS Reference", 
-  "start_url": "/css-ref.bauska.org",
+  "start_url": "/css-reference.bauska.org",
   "display": "standalone",
   "icons": [
     {
