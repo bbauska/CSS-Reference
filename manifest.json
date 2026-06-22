@@ -4,16 +4,6 @@
   "start_url": "/css-reference.bauska.org",
   "display": "standalone",
   "icons": [
-    {
-      "src": "/images/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    }
-  ]
-}
-{
- "name": "CSS Reference",
- "icons": [
   {
    "src": "\/images/android-icon-36x36.png",
    "sizes": "36x36",
